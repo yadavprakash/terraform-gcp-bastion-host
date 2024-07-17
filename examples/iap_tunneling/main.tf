@@ -6,7 +6,7 @@ provider "google" {
 
 #------------------------------------------(vpc)--------------------------------------------------------------
 module "vpc" {
-  source                                    = "git::git@github.com:opsstation/terraform-gcp-vpc.git?ref=v1.0.0"
+  source                                    = "git::git@github.com:yadavprakash/terraform-gcp-vpc.git?ref=v1.0.0"
   name                                      = "dev"
   environment                               = "test"
   label_order                               = ["name", "environment"]
@@ -19,7 +19,7 @@ module "vpc" {
 
 #------------------------------------------(subnet)------------------------------------------------------------
 module "subnet" {
-  source        = "git::git@github.com:opsstation/terraform-gcp-subnet.git?ref=v1.0.0"
+  source        = "git::git@github.com:yadavprakash/terraform-gcp-subnet.git?ref=v1.0.0"
   subnet_names  = ["dev-subnet1"]
   name          = "dev"
   environment   = "test"
@@ -31,7 +31,7 @@ module "subnet" {
 
 #------------------------------------------(firewall)--------------------------------------------------------------
 module "firewall" {
-  source        = "git::git@github.com:opsstation/terraform-gcp-firewall.git?ref=v1.0.0"
+  source        = "git::git@github.com:yadavprakash/terraform-gcp-firewall.git?ref=v1.0.0"
   name          = "dev-firewall"
   environment   = "test"
   label_order   = ["name", "environment"]
@@ -47,7 +47,7 @@ module "firewall" {
 
 #------------------------------------------(service-account)--------------------------------------------------------------
 module "service-account" {
-  source                             = "git::git@github.com:opsstation/terraform-gcp-Service-account.git?ref=v1.0.0"
+  source                             = "git::git@github.com:yadavprakash/terraform-gcp-Service-account.git?ref=v1.0.0"
   name                               = "dev"
   environment                        = "test"
   google_service_account_key_enabled = true
@@ -59,7 +59,7 @@ module "service-account" {
 
 #------------------------------------------(instance_template)--------------------------------------------------------------
 module "instance_template" {
-  source               = "git::git@github.com:opsstation/terraform-gcp-vm-template-instance.git?ref=v1.0.0"
+  source               = "git::git@github.com:yadavprakash/terraform-gcp-vm-template-instance.git?ref=v1.0.0"
   name                 = "dev"
   environment          = "test"
   region               = "us-west1"

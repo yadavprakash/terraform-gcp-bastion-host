@@ -1,5 +1,5 @@
 module "labels" {
-  source      = "git::git@github.com:opsstation/terraform-gcp-labels.git?ref=v1.0.0"
+  source      = "git::git@github.com:yadavprakash/terraform-gcp-labels.git?ref=v1.0.0"
   name        = var.name
   environment = var.environment
   label_order = var.label_order
@@ -9,7 +9,7 @@ module "labels" {
 
 
 module "mig" {
-  source              = "git::git@github.com:opsstation/terraform-gcp-instance-group.git?ref=v1.0.0"
+  source              = "git::git@github.com:yadavprakash/terraform-gcp-instance-group.git?ref=v1.0.0"
   region              = var.region
   target_size         = var.target_size
   hostname            = format("%s", module.labels.id)
@@ -46,7 +46,7 @@ module "instance_template" {
 ##### firewall module call.
 #####==============================================================================
 module "firewall" {
-  source        = "git::git@github.com:opsstation/terraform-gcp-firewall.git?ref=v1.0.0"
+  source        = "git::git@github.com:yadavprakash/terraform-gcp-firewall.git?ref=v1.0.0"
   name          = "dev"
   environment   = "test"
   network       = var.network
@@ -58,3 +58,4 @@ module "firewall" {
     }
   ]
 }
+
